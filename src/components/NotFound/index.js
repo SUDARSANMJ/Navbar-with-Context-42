@@ -1,6 +1,7 @@
-// Write your code here
-import Navbar from './Navbar'
+import Navbar from '../Navbar'
+
 import ThemeContext from '../../context/ThemeContext'
+
 import './index.css'
 
 const NotFound = () => (
@@ -11,28 +12,34 @@ const NotFound = () => (
       const notFoundBgClassName = isDarkTheme
         ? 'not-found-bg-dark'
         : 'not-found-bg-light'
-      const notFoundHeadingTextBgClassName = isDarkTheme
+
+      const notFoundHeadingTextClassName = isDarkTheme
         ? 'not-found-heading-text-light'
         : 'not-found-heading-text-dark'
-      const notFoundHeadingTextBgClassName = isDarkTheme
-        ? 'not-found-heading-text-dark'
-        : 'not-found-heading-text-light'
+
+      const notFoundContentTextClassName = isDarkTheme
+        ? 'not-found-content-text-light'
+        : 'not-found-content-text-dark'
 
       return (
-        <div className={'not-found-app-container ${notFoundBgClassName}'}>
+        <div className={`not-found-app-container ${notFoundBgClassName}`}>
           <Navbar />
           <div className="not-found-responsive-container">
             <div className="not-found-container">
-              <img src="" alt="not found" className="not-found-img" />
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/not-found-img.png"
+                alt="not found"
+                className="not-found-img"
+              />
               <h1
                 className={`not-found-heading ${notFoundHeadingTextClassName}`}
               >
-                Lost your way?
+                Lost Your Way?
               </h1>
               <p
                 className={`not-found-content ${notFoundContentTextClassName}`}
               >
-                we cannot seem to find the page are looking for
+                We cannot seem to find the page you are looking for.
               </p>
             </div>
           </div>

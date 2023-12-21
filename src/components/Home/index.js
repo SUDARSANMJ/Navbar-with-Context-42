@@ -1,6 +1,7 @@
-// Write your code here
-import ThemeContext from '../context/ThemeContext'
+import ThemeContext from '../../context/ThemeContext'
+
 import Navbar from '../Navbar'
+
 import './index.css'
 
 const Home = () => (

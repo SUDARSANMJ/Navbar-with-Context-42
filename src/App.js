@@ -1,6 +1,6 @@
 import {Switch, Route} from 'react-router-dom'
-
 import {Component} from 'react'
+import ThemeContext from './context/ThemeContext'
 
 import Home from './components/Home'
 
@@ -9,36 +9,32 @@ import About from './components/About'
 import NotFound from './components/NotFound'
 
 import './App.css'
-import ThemeContext from './context/ThemeContext'
 
 class App extends Component {
-    state = {
-        isDarkTheme: false,
-    }
-    toggleTheme = () => {
-        this.setState(prevState => ({isDark: !prevState.isDarkTheme}))
-    }
+  state = {
+    isDarkTheme: false,
+  }
+
+  toggleTheme = () => {
+    this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
+  }
 
   render() {
-      const {isDarkTheme} = this.state
+    const {isDarkTheme} = this.state
+
     return (
-        <ThemeContext.Provider
+      <ThemeContext.Provider
         value={{
-            isDarkTheme,
-            toggleTheme: this.toggleTheme,
+          isDarkTheme,
+          toggleTheme: this.toggleTheme,
         }}
-        >
-            <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/about" component={About}/>
-                <Route component={NotFound}/>
-            </Switch>
-        </ThemeContext.Provider>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route component={NotFound} />
-      </Switch>
+      >
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route component={NotFound} />
+        </Switch>
+      </ThemeContext.Provider>
     )
   }
 }
